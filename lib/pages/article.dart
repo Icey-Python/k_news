@@ -8,7 +8,8 @@ class Article extends StatelessWidget {
       required this.image,
       required this.description,
       required this.author,
-      required this.date});
+      required this.date,
+      required this.content});
 
   //declare the required
   final String title;
@@ -16,6 +17,7 @@ class Article extends StatelessWidget {
   final String description;
   final String author;
   final String date;
+  final String content;
 
   @override
   Widget build(BuildContext context) {
@@ -30,7 +32,8 @@ class Article extends StatelessWidget {
                       "image": image,
                       "description": description,
                       "author": author,
-                      "date": date
+                      "date": date,
+                      "content": content,
                     })));
       },
       child: Container(
@@ -53,29 +56,21 @@ class Article extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  //date
                   Text(
                     date,
                     style: const TextStyle(
                         fontSize: 12, fontWeight: FontWeight.w300),
                   ),
-                  const SizedBox(
-                    width: 10,
-                  ),
-                  //author text
-                  Text(
-                    author,
-                    style: const TextStyle(
-                        fontSize: 12, fontWeight: FontWeight.w300),
-                  ),
                 ],
+              ),
+              const SizedBox(
+                height: 10,
               ),
               //image
               Image.network(
                 image,
                 width: 300,
-                fit: BoxFit.cover,
-              ),
+                fit: BoxFit.cover),
               const SizedBox(
                 height: 10,
               ),
@@ -83,7 +78,7 @@ class Article extends StatelessWidget {
               Text(
                 description,
                 style:
-                    const TextStyle(fontSize: 12, fontWeight: FontWeight.w300),
+                    const TextStyle(fontSize: 14, fontWeight: FontWeight.w300),
               ),
             ],
           ),
